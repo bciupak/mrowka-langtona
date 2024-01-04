@@ -5,18 +5,20 @@
 #include <locale.h>
 #include <string.h>
 #include <math.h>
+#include "characters.h"
 
+#include "ant.h"
 #include "genBoard.h"
 #include "dataMgmt.h"
 
-void test(int *n, int *m, int *i, int *percent, char **name, char **direction, char **map, char **in){
-    *n = 30;
-    *m = 20;
-    *i = 10;
-    *percent = 0;
-    *name = "test0";
-    *direction = "east";
-    *map = "asf";
+void test(int *n, int *m, int *i, int *percent, char **name, char **direction, char **in){
+    *n = 10;
+    *m = 10;
+    *i = 1000;
+    *percent = 25;
+    *name = "mapaTest";
+    // *direction = "s";
+    *in = "mapaTest";
 
 }
 
@@ -26,17 +28,36 @@ int main(int argc, char **argv) {
 
 
     int n, m, i, percent;
-    char *name, *direction, *map, *in;
+    char *name, *direction, *in;
 
-    test(&n, &m, &i, &percent, &name, &direction, &map , &in );
+    // testowanie
 
-    wchar_t** mapa = genMap(n, m, percent);
-    //mapa = fileIn();
+    test(&n, &m, &i, &percent, &name, &direction, &in );
 
-    boardOut(mapa, n, m);
+    int x = round((n)/2);
+    int y = round((m)/2);
 
-    fileOut(mapa, n, m, name);
+    direction = argc > 2 ? argv[2] : "s";
+    // printf("%s", direction);
+    wchar_t** mapa;
+    if (argc > 1){
+        percent = atoi(argv[1]);
+        mapa = genMap(n, m, percent, x, y, direction);
+        boardOut(mapa, n, m);
+        master(mapa, n, m, x, y, i, direction);
+        fileOut(mapa, n, m, name);
+   
+    } else {
+        mapa = fileIn(in, n, m);
+        boardOut(mapa, n, m);
+        master(mapa, n, m, x, y, i, direction);
 
+        
+
+    }
+
+    
+    
 
     return 0;
     }

@@ -1,1 +1,2 @@
-# mrowka-langtona
+# Langtons-ant
+Mrówka Langtona

@@ -1,12 +1,13 @@
-#include "characters.h"
+
 #include "genBoard.h"
-#include <stddef.h>
+#include "ant.h"
+
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <wchar.h>
-#include <locale.h>
 #include <time.h>
 #include <math.h>
+#include "characters.h"
 
 
 
@@ -22,6 +23,7 @@ void boardOut(wchar_t **board, int n, int m){
     for (int i = 0; i < n + 1; i++){
         for (int j = 0; j < m + 1; j++)
             printf("%lc", board[i][j]);
+        
         printf("\n");
     }
 
@@ -57,15 +59,15 @@ void korekta(wchar_t ** board, int blackCounter, int n, int m){
         if (result != -1){
             board[i][result] = SQUARE_BLACK[0];
             blackCounter -= 1;
-
+            
         } else
             i += 1;
-
+        
         }
 
 
-
-
+          
+       
 }
 
 
@@ -77,9 +79,10 @@ void freeBoard(wchar_t** board, int rows) {
     free(board);
 }
 
-wchar_t** genMap(int n, int m, int percent) {
+wchar_t** genMap(int n, int m, int percent, int antX, int antY, char* direction) {
     srand(time(NULL));
-    setlocale(LC_ALL, "C.UTF-8");
+
+    int dir = DirectionNumber(direction);
 
     n += 1;
     m += 1;
@@ -89,7 +92,7 @@ wchar_t** genMap(int n, int m, int percent) {
 
 
     wchar_t **board = (wchar_t**)malloc(n * sizeof(wchar_t*));
-
+ 
     for (int i = 0; i <= n; i++) {
         board[i] = (wchar_t*)malloc(m * sizeof(wchar_t));
 
@@ -122,23 +125,26 @@ wchar_t** genMap(int n, int m, int percent) {
                     blackCount -= 1;
 
                 }
-
+                    
                 else{
                     board[i][j] = SQUARE_WHITE[0];  
                 }          
-
+                
             }
-
+            
         }
-
-
+        
+        
     }
-
+    
     korekta(board,blackCount,n, m);
 
+
+    board[antX][antY]  = dictAnt(dir, Color(board[antX][antY]));
 
 
     return board;
 
-
+    
 }
+

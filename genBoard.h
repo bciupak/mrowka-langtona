@@ -2,6 +2,8 @@
 #define GENBOARD
 
 #include <stdio.h>
+#include <wchar.h>
+
 // losowy int z zasiegu <a, b>
 int randrange(int a, int b);
 
@@ -18,6 +20,6 @@ void korekta(wchar_t ** board, int blackCounter, int rows, int columns);
 void freeBoard(wchar_t** board, int rows);
 
 // generowanie mapy
-wchar_t** genMap(int n, int m, int percent);
+wchar_t** genMap(int n, int m, int percent,int antX, int antY, char* direction);
 
 #endif //GENBOARD
