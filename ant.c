@@ -83,11 +83,13 @@ int DirectionNumber (char* direction){
         return 3;
 }
 
-void master(wchar_t** board,int n, int m, int x, int y, int iteration, char* startDirection){
+void master(wchar_t** board,int m, int n, int x, int y, int iteration, char* startDirection, char* f){
 
     int k = DirectionNumber(startDirection);
 
     char* color;
+
+    
 
     
 
@@ -99,6 +101,11 @@ void master(wchar_t** board,int n, int m, int x, int y, int iteration, char* sta
 
     
     for (int i = 0; i < iteration; i ++){
+        
+        char* name = filename_Number(f, i);
+
+        fileOut(board, m, n, name);
+
 
         if (strcmp(color, "white") == 0){
             k += 1;
@@ -131,17 +138,12 @@ void master(wchar_t** board,int n, int m, int x, int y, int iteration, char* sta
 
         }
 
-        if (x <= 0 || x >= n || y <= 0 || y >= m){
+        if (x <= 0 || x >= m || y <= 0 || y >= n){
             printf("\n\nkoniec programu\n\n");
             exit(0);
         }
         color = Color(board[x][y]);
         board[x][y] = dictAnt(k, Color(board[x][y]));
-
-
-        char* name = filename_Number("file", i);
-
-        fileOut(board, n, m, name);
 
 
         

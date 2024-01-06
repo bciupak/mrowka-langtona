@@ -18,10 +18,10 @@ int randrange(int a, int b) {
 
     return randomNum;
 }
-void boardOut(wchar_t **board, int n, int m){
+void boardOut(wchar_t **board, int m, int n){
 
-    for (int i = 0; i < n + 1; i++){
-        for (int j = 0; j < m + 1; j++)
+    for (int i = 0; i < m + 1; i++){
+        for (int j = 0; j < n + 1; j++)
             printf("%lc", board[i][j]);
         
         printf("\n");
@@ -47,15 +47,15 @@ int binarySearch(wchar_t *board, int low, int high, wchar_t target) {
     return -1;
 }
 
-void korekta(wchar_t ** board, int blackCounter, int n, int m){
+void korekta(wchar_t ** board, int blackCounter, int m, int n){
 
-    // int checkI = randrange(1, n -2);
+    // int checkI = randrange(1, m -2);
     int i = 0;
     int result;
     int check = 0;
     while (blackCounter > 0){
 
-        result = binarySearch(board[i], 1, m - 1, SQUARE_WHITE[0]);
+        result = binarySearch(board[i], 1, n - 1, SQUARE_WHITE[0]);
         if (result != -1){
             board[i][result] = SQUARE_BLACK[0];
             blackCounter -= 1;
@@ -79,43 +79,43 @@ void freeBoard(wchar_t** board, int rows) {
     free(board);
 }
 
-wchar_t** genMap(int n, int m, int percent, int antX, int antY, char* direction) {
+wchar_t** genMap(int m, int n, int percent, int antX, int antY, char* direction) {
     srand(time(NULL));
 
     int dir = DirectionNumber(direction);
 
-    n += 1;
     m += 1;
+    n += 1;
 
     float blackChance = percent;
-    int blackCount = round(((n - 2) * (m - 2)) * (blackChance/100));
+    int blackCount = round(((m - 2) * (n - 2)) * (blackChance/100));
 
 
-    wchar_t **board = (wchar_t**)malloc(n * sizeof(wchar_t*));
+    wchar_t **board = (wchar_t**)malloc(m * sizeof(wchar_t*));
  
-    for (int i = 0; i <= n; i++) {
-        board[i] = (wchar_t*)malloc(m * sizeof(wchar_t));
+    for (int i = 0; i <= m; i++) {
+        board[i] = (wchar_t*)malloc(n * sizeof(wchar_t));
 
-        for (int j = 0; j < m; j++) {
+        for (int j = 0; j < n; j++) {
             if (i == 0){
                 if (j == 0)
                     board[i][j] = LINE_DOWN_RIGHT[0];
-                else if (j == m - 1)
+                else if (j == n - 1)
                     board[i][j] = LINE_DOWN_LEFT[0];
                 else 
                     board[i][j] = LINE_HORIZONTAL[0];
             }
-            else if (i == n - 1){
+            else if (i == m - 1){
                 if (j == 0)
                     board[i][j] = LINE_UP_RIGHT[0];
-                else if (j == m - 1)
+                else if (j == n - 1)
                     board[i][j] = LINE_UP_LEFT[0];
                 else
                     board[i][j] = LINE_HORIZONTAL[0];
 
             }
 
-            else if (j == 0 || j == m - 1){
+            else if (j == 0 || j == n - 1){
                 board[i][j] = LINE_VERTICAL[0];
             }
 
@@ -137,7 +137,7 @@ wchar_t** genMap(int n, int m, int percent, int antX, int antY, char* direction)
         
     }
     
-    korekta(board,blackCount,n, m);
+    korekta(board,blackCount,m, n);
 
 
     board[antX][antY]  = dictAnt(dir, Color(board[antX][antY]));

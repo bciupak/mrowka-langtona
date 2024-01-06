@@ -1,6 +1,7 @@
 objects = main.o genBoard.o dataMgmt.o characters.o ant.o
 
 
+
 edit : $(objects)
 
 	cc -o edit $(objects) -lm
@@ -17,12 +18,13 @@ ant.o : ant.c characters.h
 
 clean :
 	rm edit $(objects)
-	rm -r output_files/*
 
+folder :
+	mkdir output_files
 
 testObj = test.o
 
-outclean:
+cleanOut:
 	rm -r output_files/*
 
 test : $(testObj)

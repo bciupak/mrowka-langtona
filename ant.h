@@ -17,6 +17,6 @@ wchar_t changeColor(char* color);
 
 int DirectionNumber (char* direction);
 
-void master(wchar_t** board,int n, int m, int x, int y, int iteration, char* startDirection);
+void master(wchar_t** board,int n, int m, int x, int y, int iteration, char* startDirection, char* f);
 
 #endif //ANT
