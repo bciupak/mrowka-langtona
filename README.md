@@ -13,6 +13,7 @@ Opcjonalnie:
 -g *procent zapełnienia mapy czarnymi polami w losowych miejscach*
 -f *nazwa plików z wynikami*
 -p *nazwa pliku, z którego wczytujemy mapę*
+Podczas jednego wywołania nie możemy korzystać z opcji -p i -g naraz.  
 
 Aby usunąć pliki wynikowe:
 make cleanOut
