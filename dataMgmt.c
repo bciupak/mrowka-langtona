@@ -45,6 +45,7 @@ void argumenty(int argc, char **argv, int* m, int* n, int* i, char** f, char** d
             *d = optarg;
             break;
         case 'p':
+            *p = optarg;
             break;
         case 'g':            
             *g = atoi(optarg);
@@ -120,3 +121,4 @@ wchar_t** fileIn(char* name,int m, int n){
 
     return board;
 }
+
