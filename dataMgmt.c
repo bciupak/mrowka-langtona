@@ -6,12 +6,14 @@
 #include <unistd.h>
 #include <ctype.h>
 
+
+
 void argumenty(int argc, char **argv, int* m, int* n, int* i, char** f, char** d, char** p, int* g){
 
     // -m (int) wiersze
     // -n (int) kolumny
     // -i (int) iteracje
-    // -f (char*) nazwa plików wyjsciowych (opcojnalnie)
+    // -f (char*) nazwa plikÃ³w wyjsciowych (opcojnalnie)
     // -d (char*) kierunek poczatkowy mrowki
     // -p (char*) mapa pokryta czarnymi (opcjonalnie)
     // -g (int) wygenerowanie nowej mapy zapelnionej procentowo czarnymi (opcjonalnie)
@@ -121,4 +123,3 @@ wchar_t** fileIn(char* name,int m, int n){
 
     return board;
 }
-

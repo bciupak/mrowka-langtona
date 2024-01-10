@@ -25,7 +25,7 @@ folder :
 testObj = test.o
 
 cleanOut:
-	rm -r output_files
+	rm -r output_files/*
 
 test : $(testObj)
 	cc -o test $(testObj)

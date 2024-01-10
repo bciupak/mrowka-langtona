@@ -19,6 +19,9 @@ void korekta(wchar_t ** board, int blackCounter, int rows, int columns);
 // usuniecie planszy ze sterty
 void freeBoard(wchar_t** board, int rows);
 
+//szukanie mrowki
+void arrowSearch(wchar_t** board, int m, int n, int* x, int* y);
+
 // generowanie mapy
 wchar_t** genMap(int n, int m, int percent,int antX, int antY, char* direction);
 

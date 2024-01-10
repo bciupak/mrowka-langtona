@@ -79,6 +79,23 @@ void freeBoard(wchar_t** board, int rows) {
     free(board);
 }
 
+
+
+void arrowSearch(wchar_t** board, int m, int n, int* x, int* y){
+
+   for (int i = 1; i < m; i ++){
+        for (int j = 1; j < n; j ++)
+            if (board[i][j] != SQUARE_BLACK[0] && board[i][j] != SQUARE_WHITE[0]){
+                *x = i;
+                *y = j;
+                break;
+            }
+   }
+}
+
+
+
+
 wchar_t** genMap(int m, int n, int percent, int antX, int antY, char* direction) {
     srand(time(NULL));
 

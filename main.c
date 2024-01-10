@@ -40,24 +40,29 @@ int main(int argc, char **argv) {
 
  
     wchar_t** mapa;
-
+    m += 1;
+    n += 1;
 
     if (p == NULL){
         // procent i kierunek
+
         printf("Wygenerowana mapa:\n\n");
         mapa = genMap(m, n, g, x, y, d);
         boardOut(mapa, m, n);
         fileOut(mapa, m, n, f);
-
+    
+       
         master(mapa, m, n, x, y, i, d, f);
 
 
     } else {
     // preset
         printf("Wczytana mapa:\n\n");
+
         mapa = fileIn(p, m, n);
 
         boardOut(mapa, m, n);
+        arrowSearch(mapa, m, n, &x, &y);
         master(mapa, m, n, x, y, i, d, f);
     }
         
