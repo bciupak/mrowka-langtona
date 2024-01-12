@@ -49,7 +49,8 @@ wchar_t dictAnt(int direction, char* color) {
             break;
 
         default:
-            printf("\nBledzik totalny\n");
+            printf("\nBlad w kierunkach mrowki ( ant.c/dictAnt() )\n");
+            exit(0);
             break;
     }
 
@@ -139,14 +140,11 @@ void master(wchar_t** board,int m, int n, int x, int y, int iteration, char* sta
         }
 
         if (x <= 0 || x >= m || y <= 0 || y >= n){
-            printf("\n\nkoniec programu\n\n");
+            printf("Mrowka wyszla poza granice planszy.\nIlosc przejsc: %d\n", i);
             exit(0);
         }
         color = Color(board[x][y]);
         board[x][y] = dictAnt(k, Color(board[x][y]));
-
-
-        
 
     }
 

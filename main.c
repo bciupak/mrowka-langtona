@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
     setlocale(LC_ALL, "C.UTF-8");  
 
 
-    int m, n, i, g = - 1;
+    int m, n, i, g = 0;
     char *f = NULL, *d, *in, *p = NULL;
     
     argumenty(argc, argv, &m, &n, &i, &f, &d, &p, &g);
@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
 
     
 
-    
+    printf("Koniec symulacji. Wykonano %d iteracji\n", i);
     
 
     return 0;

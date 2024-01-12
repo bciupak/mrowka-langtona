@@ -5,6 +5,7 @@ objects = main.o genBoard.o dataMgmt.o characters.o ant.o
 edit : $(objects)
 
 	cc -o edit $(objects) -lm
+	mkdir -p output_files
 
 main.o : main.c genBoard.h dataMgmt.h characters.h
 	cc -c main.c
@@ -19,8 +20,6 @@ ant.o : ant.c characters.h
 clean :
 	rm edit $(objects)
 
-folder :
-	mkdir output_files
 
 testObj = test.o
 
@@ -31,5 +30,6 @@ test : $(testObj)
 	cc -o test $(testObj)
 test.o : test.c
 	cc -c test.c
-
+tclean :
+	rm test $(testObj)
 
