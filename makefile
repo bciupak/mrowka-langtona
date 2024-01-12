@@ -19,7 +19,7 @@ ant.o : ant.c characters.h
 
 clean :
 	rm edit $(objects)
-
+	rm -r output_files/*
 
 testObj = test.o
 
