@@ -1,8 +1,7 @@
 Mrówka Langtona
 
 Przed wywołaniem programu należy go skompilować oraz stworzyć folder na pliki z wynikami:
-make folder ---> tworzy folder
-make ---> kompiluje program
+make ---> kompiluje program i tworzy folder na pliki wynikowe
 
 Aby wywołać program należy wpisać:
 ./edit -m *liczba rzędów* -n *liczba kolumn* -i *liczba kroków mrówki* -d *kierunek startowy mrówki* 
@@ -18,5 +17,5 @@ Podczas jednego wywołania nie możemy korzystać z opcji -p i -g naraz.
 Aby usunąć pliki wynikowe:
 make cleanOut
 
-Aby usunąć skompilowane pliki:
-make clean
+Aby usunąć skompilowane pliki oraz pliki wynikowe:
+make clean 
