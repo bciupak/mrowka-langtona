@@ -79,7 +79,7 @@ void argumenty(int argc, char **argv, int* m, int* n, int* i, char** f, char** d
         case 'f':
             argError(c, optarg);
             *f = optarg;
-            argCheck++;
+            
             break;
         case 'd':
             argError(c, optarg);
@@ -114,8 +114,8 @@ void argumenty(int argc, char **argv, int* m, int* n, int* i, char** f, char** d
             abort();
         }
 
-    if (argCheck < 5){
-        fprintf(stderr, "Za malo podanych argumentow. Upewnij sie ze podales argumenty: m, n, i, f, d\n");
+    if (argCheck < 4){
+        fprintf(stderr, "Za malo podanych argumentow. Upewnij sie ze podales argumenty: m, n, i, d\n");
         exit(0);
     } else if (argCheck > 5){
         fprintf(stderr, "Za duzo podanych argumentow.\n");

@@ -48,10 +48,12 @@ int main(int argc, char **argv) {
 
         printf("Wygenerowana mapa:\n\n");
         mapa = genMap(m, n, g, x, y, d);
-        boardOut(mapa, m, n);
-        fileOut(mapa, m, n, f);
-    
-       
+        
+        
+        if (f != NULL){
+            boardOut(mapa, m, n);
+            fileOut(mapa, m, n, f);
+        }
         master(mapa, m, n, x, y, i, d, f);
 
 
@@ -60,8 +62,8 @@ int main(int argc, char **argv) {
         printf("Wczytana mapa:\n\n");
 
         mapa = fileIn(p, m, n);
-
-        boardOut(mapa, m, n);
+        if (f != NULL)
+            boardOut(mapa, m, n);
         arrowSearch(mapa, m, n, &x, &y);
         master(mapa, m, n, x, y, i, d, f);
     }
