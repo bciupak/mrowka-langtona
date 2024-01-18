@@ -11,19 +11,8 @@
 #include "genBoard.h"
 #include "dataMgmt.h"
 
-void test(int *m, int *n, int *i, int *percent, char **name, char **direction, char **in){
-    *m = 10;
-    *n = 10;
-    *i = 1000;
-    *percent = 25;
-    *name = "mapaTest";
-    *direction = "s";
-    *in = "mapaTest";
-
-}
 
 int main(int argc, char **argv) {
-    // setting Unicode to UTF-8, so characters can show up
     setlocale(LC_ALL, "C.UTF-8");  
 
 
@@ -33,8 +22,6 @@ int main(int argc, char **argv) {
     argumenty(argc, argv, &m, &n, &i, &f, &d, &p, &g);
 
     
-    // test(&m, &n, &i, &g, &f, &d, &in );
-
     int x = round((m)/2);
     int y = round((n)/2);
 

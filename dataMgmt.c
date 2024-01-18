@@ -39,7 +39,7 @@ void argumenty(int argc, char **argv, int* m, int* n, int* i, char** f, char** d
     // -m (int) wiersze
     // -n (int) kolumny
     // -i (int) iteracje
-    // -f (char*) nazwa plikow wyjsciowych
+    // -f (char*) nazwa plikow wyjsciowych (opcjonalnie)
     // -d (char*) kierunek poczatkowy mrowki
     // -p (char*) mapa pokryta czarnymi (opcjonalnie)
     // -g (int) wygenerowanie nowej mapy zapelnionej procentowo czarnymi (opcjonalnie)

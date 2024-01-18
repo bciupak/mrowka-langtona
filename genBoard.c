@@ -1,7 +1,5 @@
-
 #include "genBoard.h"
 #include "ant.h"
-
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,7 +47,6 @@ int binarySearch(wchar_t *board, int low, int high, wchar_t target) {
 
 void korekta(wchar_t ** board, int blackCounter, int m, int n){
 
-    // int checkI = randrange(1, m -2);
     int i = 0;
     int result;
     int check = 0;
