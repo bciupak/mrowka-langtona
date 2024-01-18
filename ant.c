@@ -103,10 +103,12 @@ void master(wchar_t** board,int m, int n, int x, int y, int iteration, char* sta
     
     for (int i = 0; i < iteration; i ++){
         
-        char* name = filename_Number(f, i);
-
-        fileOut(board, m, n, name);
-
+        if (f != NULL){
+            char* name = filename_Number(f, i);
+            fileOut(board, m, n, name);
+        }
+        else
+            boardOut(board,m,n);
 
         if (strcmp(color, "white") == 0){
             k += 1;
